@@ -1,0 +1,11 @@
+.deleteButton {
+    margin-right: 5px;
+}
+
+.cancellButton {
+    background-color: grey;
+}
+
+.deleteWindowHeader {
+    background-color: grey;
+}

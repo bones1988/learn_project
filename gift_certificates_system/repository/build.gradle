@@ -1,0 +1,9 @@
+dependencies {
+    compile group: 'mysql', name: 'mysql-connector-java', version: "${mysqlVersion}"
+    implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatisVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jdbc', version: "${springbootVersion}"
+
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springbootVersion}"
+    testCompile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter-test', version: "${mybatisVersion}"
+    testCompile group: 'com.h2database', name: 'h2', version: "${h2Version}"
+}

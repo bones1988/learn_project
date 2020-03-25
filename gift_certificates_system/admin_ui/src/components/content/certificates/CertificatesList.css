@@ -1,0 +1,13 @@
+.cerificatesData {
+    background-color: whitesmoke;   
+}
+
+.table-bordered td, .table-bordered th{
+    border-color: black !important;
+}
+
+.pageSizeButton {
+    float: right;
+    background-color: white;
+    border-radius: 5px;
+}

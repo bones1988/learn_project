@@ -1,0 +1,15 @@
+.searchBar {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-areas: 'sT sBut';
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.searchButton {
+    grid-area: sBut;
+}
+
+.seachText {
+    grid-area: sT;
+}

@@ -1,0 +1,47 @@
+.loginWrapper {
+  display: grid; 
+  grid-template-columns: 3fr 3fr 3fr;
+  grid-template-rows: 3fr 5fr 3fr;
+  grid-template-areas: '. . .'
+                       '. lF .'
+                       '. . .';                                           
+}
+
+.loginForm {
+  display: grid;
+  grid-template-rows: 20% 10% 1fr 10%;
+  grid-template-columns: 15% 1fr 15%;
+  grid-area: lF;
+  grid-template-areas: 'lT lT lT'
+                       '. . .'
+                       '. lI .';
+  background-color: white;
+  border-radius: 5px;  
+}
+
+.loginTitle {
+  grid-area: lT ;
+  background-color: rgb(201, 198, 198);
+  text-align: center;
+  font-size: 150%;
+  font-weight: 500%; 
+  border-top-right-radius: 5px; 
+  border-top-left-radius: 5px; 
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: grey;
+}
+
+.loginInput {
+  grid-area: lI ;
+}
+
+.button {
+  display: grid;
+  grid-template-columns: 30% 1fr 30%;
+  grid-template-areas: '. lB .'
+}
+
+.loginButton {
+  grid-area: lB ;
+}

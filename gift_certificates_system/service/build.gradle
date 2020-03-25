@@ -1,0 +1,8 @@
+dependencies {
+    compile project(":repository")
+    compile group: 'org.modelmapper', name: 'modelmapper', version: "${modelmapperVersion}"
+    compile group: 'org.modelmapper.extensions', name: 'modelmapper-spring', version: "${modelmapperVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: "${springbootVersion}"
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: "${webtokenVersion}"
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springbootVersion}"
+}

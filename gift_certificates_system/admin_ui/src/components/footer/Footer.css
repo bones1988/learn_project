@@ -1,0 +1,15 @@
+.footer {
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-areas: ". l .";
+    background-color: #343a40;
+    color: #77797a;
+    
+}
+
+.label {
+    grid-area: l;
+    text-align: center;
+    font-size: 170%;
+    margin: 0;
+}

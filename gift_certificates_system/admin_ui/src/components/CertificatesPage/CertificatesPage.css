@@ -1,0 +1,38 @@
+.certificatesPageWrapper {
+    display: grid;
+    grid-template-columns: 5% 1fr 10% 5%;
+    grid-template-rows: auto auto  10fr auto;
+    grid-template-areas: '. eB eB .'                        
+                         '. sB sB .'
+                         '. sT sT .'
+                         '. pN pSL .';
+}
+
+.errorBar {
+    grid-area: eB;   
+}
+
+.searchBar {
+    grid-area: sB;
+}
+
+.certificatesTable {
+    grid-area: sT;
+}
+
+.pageSizeList {
+    grid-area: pSL;
+}
+
+.pageNum {
+    grid-area: pN;
+    margin-bottom: 50px;
+}
+
+.page-link {
+    color: black;
+}
+
+.dropdown-toggle {
+    border: none;
+}

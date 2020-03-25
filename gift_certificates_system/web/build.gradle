@@ -1,0 +1,28 @@
+plugins {
+    id "org.springframework.boot" version "2.2.4.RELEASE"
+}
+
+archivesBaseName = 'giftShop'
+
+dependencies {
+    compile project(":service")
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "${jacksonVersion}"
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}"
+    compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: "${jacksonVersion}"
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: "${jacksonVersion}"
+
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: "${webtokenVersion}"
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: "${springbootVersion}"
+    compile('org.springframework.boot:spring-boot-starter-web') {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty', version: "${springbootVersion}"
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    testImplementation group:'io.rest-assured', name:'rest-assured-all', version:  "${restAssuredVersion}"
+    implementation 'org.springframework.security:spring-security-test'
+    testImplementation group:'io.rest-assured', name:'spring-mock-mvc', version: "${restAssuredMockMvcVersion}"
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springbootVersion}"
+}

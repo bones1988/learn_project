@@ -1,0 +1,18 @@
+.loginIcon {
+    margin-right: 20px;
+    
+}
+
+.loginText {
+    color: white;
+}
+
+.logoutLink {
+    margin-right: 20px;
+}
+
+.localeButton {
+    color: white;
+    background-color: #343a40;
+    border: none;
+}

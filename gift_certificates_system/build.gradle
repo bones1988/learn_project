@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+    id "org.sonarqube" version "2.8"
+    id "io.spring.dependency-management" version "1.0.9.RELEASE"
+}
+
+subprojects {
+    group 'com.epam.esm'
+    version "${projectVersion}"
+    apply plugin: "java"
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'java-library'
+    apply plugin: "jacoco"
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
