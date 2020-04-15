@@ -33,7 +33,7 @@ certificate_id bigint unsigned,
 price decimal(6,2),
 buyTime timestamp(3),
 foreign key(user_id) references shopUser(id),
-foreign key(certificate_id) references certificate(id)
+foreign key(certificate_id) references certificate(id) on delete cascade
 );
 
 create table assign (

@@ -1,5 +1,6 @@
 package com.epam.esm.logging;
 
+import com.epam.esm.dto.impl.GiftCertificateDto;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -10,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 
 /**
@@ -20,6 +23,8 @@ import java.util.Arrays;
 public class LogAspect {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
     /**
      * pointcut for beans
@@ -30,6 +35,54 @@ public class LogAspect {
             " || within(@org.springframework.web.bind.annotation.RestController *)")
     public void springBeanPointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
+    }
+
+    @Pointcut("execution(public * com.epam.esm.service.impl.GiftCertificateServiceImpl.save(..))")
+    public void certificateProcess() {
+    }
+
+        @Around("certificateProcess()")
+    public void logCertificateProcess(ProceedingJoinPoint jp) throws Throwable {
+        startDate = LocalDateTime.now();
+        GiftCertificateDto certificateDto = (GiftCertificateDto)jp.getArgs()[0];
+        String processedCertificate = certificateDto.getName();
+        Object result = jp.proceed();
+        endDate = LocalDateTime.now();
+        Duration duration = Duration.between(startDate, endDate);
+        long latency = duration.getNano();
+        double milliseconds = latency/(1000000*1.0);
+        log.warn("Processed certificate :" + processedCertificate + " for " + milliseconds + " miliseconds.");
+    }
+
+
+    @Pointcut("execution(public * com.epam.esm.file.FileProcessor.processFile(..))")
+    public void fileProcess() {
+    }
+
+    @AfterThrowing(pointcut = "fileProcess()", throwing = "e")
+    public void logError(JoinPoint jp, Throwable e) {
+        log.error("Processing failure");
+        log.error(String.valueOf(e.getClass()));
+        log.error(e.getMessage());
+        log.error(Arrays.toString(e.getStackTrace()));
+    }
+
+    @Around("fileProcess()")
+    public void logFileProcess(ProceedingJoinPoint jp) throws Throwable {
+        startDate = LocalDateTime.now();
+        String processedFile = jp.getArgs()[0].toString().replaceAll("~", "");
+        Object result = jp.proceed();
+        endDate = LocalDateTime.now();
+        Duration duration = Duration.between(startDate, endDate);
+        long latency = duration.getNano();
+        double milliseconds = latency/(1000000*1.0);
+        String resultValue;
+        if ((boolean) result) {
+            resultValue = "success!";
+        } else {
+            resultValue = "failure!";
+        }
+        log.warn("Processed file :" + processedFile + " for " + milliseconds + " miliseconds with " + resultValue);
     }
 
     /**

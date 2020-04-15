@@ -1,0 +1,25 @@
+plugins {
+    id "application"
+}
+apply plugin: "java"
+
+ext {
+    javaMainClass = "com.epam.esm.runner.DataProducerRunner"
+}
+
+
+group 'com.epam.esm'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.0.rc1'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.19'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.1'
+}

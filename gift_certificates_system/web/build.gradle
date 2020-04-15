@@ -6,6 +6,7 @@ archivesBaseName = 'giftShop'
 
 dependencies {
     compile project(":service")
+    compile project(":multithread_parser")
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "${jacksonVersion}"
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${jacksonVersion}"
     compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: "${jacksonVersion}"

@@ -3,3 +3,5 @@ include 'repository'
 include 'service'
 include 'web'
 include 'admin_ui'
+include 'multithread_parser'
+

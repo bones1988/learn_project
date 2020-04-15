@@ -1,0 +1,5 @@
+dependencies {
+    compile project(":service")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: "${springbootVersion}"
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
+}
